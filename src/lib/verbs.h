@@ -1,10 +1,10 @@
-/* main.c
+/* libverbs.h
    Copyright (C) 2020 Ivan Guerreschi
 
 This file is part of verbsitadeu.
 
 Author: Ivan Guerreschi <ivanguerreschi86@gmail.com>
-Maintainer: Ivan Guerreschi <ivanguerreschi86@gmail.com>e
+Maintainer: Ivan Guerreschi <ivanguerreschi86@gmail.com>
 
 verbsitadeu is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,13 +19,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <stdio.h>
-#include "verbs.h"
+#ifndef LIBVERBS_FILE_H
+#define LIBVERBS_FILE_H
 
-int
-main()
-{
-  printf ("%s\n", avere_verb ());
+char* avere_verb ();
 
-  return 0;
-}
+#endif /* LIBVERBS_FILE_H */

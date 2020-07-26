@@ -5,11 +5,12 @@ AC_PREREQ([2.69])
 AC_INIT([verbs-ita-deu], [0.1], [ivanguerreschi86@gmail.com])
 AC_CONFIG_SRCDIR([src/bin/main.c])
 AC_CONFIG_HEADERS([config.h])
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([-Wall -Werror])
 
 # Checks for programs.
 AC_PROG_CC_C99
 AC_PROG_CPP
+AC_PROG_RANLIB
 
 # Use the C language and compiler for the following checks
 AC_LANG([C])
@@ -26,5 +27,6 @@ AC_TYPE_SIZE_T
 # Checks for library functions.
 
 AC_CONFIG_FILES([Makefile
-                 src/bin/Makefile])
+                 src/bin/Makefile
+		 src/lib/Makefile])
 AC_OUTPUT
