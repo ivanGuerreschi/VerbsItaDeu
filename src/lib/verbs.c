@@ -38,26 +38,23 @@ open_file ()
 }
 
 void
-storage_verbs (FILE *fp)
+storage_verbs (FILE *fp,
+	       int row)
 {  
-  verb_t *verb = (verb_t *) malloc (3 * sizeof(verb_t));
+  verb_t *verb = malloc (row * sizeof(verb_t));
   int n = 0;
-  int res = 0; 
-
+  
   while (1)
-    {
-      res = fscanf (fp, "%s", verb[n].ita);
-      if (res != 1)
-	break;
-
-      res = fscanf (fp, "%s", verb[n].deu);
-      if (res != 1)
-	{
-	  perror ("Error read file");
-	  exit (1);
-	}
+    {      
+      if (fscanf (fp, "%s%s", verb[n].ita, verb[n].deu) != 2)
+	break;     
 
       n++;
+    }
+
+  for (int i = 0; i < row; i++)
+    {
+      printf ("%s-%s\n", verb[i].ita, verb[i].deu);
     }
 
   fclose (fp);
@@ -82,10 +79,10 @@ int
 count_row_file (FILE *fp)
 {
   char c;
-  int count = 0;
+  int count = 1;
   for (c = getc(fp); c != EOF; c = getc(fp)) 
     if (c == '\n') 
-      count = count + 1;
+      count++;
   
   return count;
   

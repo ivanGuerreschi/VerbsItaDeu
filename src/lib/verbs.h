@@ -29,7 +29,7 @@ typedef struct
 } verb_t;
 
 FILE* open_file ();
-void storage_verbs (FILE *fp);
+void storage_verbs (FILE *fp, int row);
 void all_verbs (FILE *fp, int row);
 int count_row_file (FILE *fp);
 

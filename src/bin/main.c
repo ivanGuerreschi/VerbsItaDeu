@@ -25,7 +25,8 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 int
 main (int argc, char *argv[])
 {
-  all_verbs (open_file (), count_row_file (open_file ()));
+  /* all_verbs (open_file (), count_row_file (open_file ())); */
+  storage_verbs (open_file (), count_row_file (open_file ()));
   
   return 0;
 }
