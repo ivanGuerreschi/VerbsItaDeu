@@ -38,7 +38,7 @@ open_file ()
 }
 
 void
-all_verbs (FILE *fp)
+storage_verbs (FILE *fp)
 {  
   verb_t *verb = (verb_t *) malloc (3 * sizeof(verb_t));
   int n = 0;
@@ -60,13 +60,21 @@ all_verbs (FILE *fp)
       n++;
     }
 
-  for (int i = 0; i <= n - 1; i++)
-    {
-      printf ("%s-%s\n", verb[i].ita, verb[i].deu);
-    }
-
   fclose (fp);
   free (verb);
+}
+
+void
+all_verbs (FILE *fp)
+{
+  char *row = malloc (sizeof (fp) / sizeof (char));
+  while (fgets (row, 3, fp) != NULL)
+    {
+      printf ("%s", row);
+    }
+
+  printf ("\n");
+  fclose (fp);
 }
 
 
