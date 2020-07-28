@@ -22,6 +22,12 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #ifndef LIBVERBS_FILE_H
 #define LIBVERBS_FILE_H
 
-char* avere_verb ();
+typedef struct
+{
+  char ita[20];
+  char deu[20];
+} verb_t;
+
+void all_verbs ();
 
 #endif /* LIBVERBS_FILE_H */

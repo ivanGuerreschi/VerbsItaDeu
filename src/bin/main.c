@@ -23,9 +23,9 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #include "verbs.h"
 
 int
-main()
+main (int argc, char *argv[])
 {
-  printf ("%s\n", avere_verb ());
-
+  all_verbs ();
+  
   return 0;
 }

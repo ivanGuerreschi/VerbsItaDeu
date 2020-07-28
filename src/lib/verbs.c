@@ -19,10 +19,47 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "verbs.h"
 
-char*
-avere_verb ()
-{  
-  return "haben";
+void
+all_verbs ()
+{
+  FILE *fp;
+  verb_t *verb = malloc(100 * sizeof(verb_t));
+  int n = 0;
+  int res = 0;
+
+  fp = fopen ("verbs.dat", "r");
+  if (fp == NULL)
+    {
+      perror ("Error open file");
+      exit (1);
+    }
+
+  while (1)
+    {
+      res = fscanf (fp, "%s", verb[n].ita);
+      if (res != 1)
+	break;
+
+      res = fscanf (fp, "%s", verb[n].deu);
+      if (res != 1)
+	{
+	  perror ("Error read file");
+	  exit (1);
+	}
+
+      n++;
+    }
+
+  for (int i = 0; i <= n - 1; i++)
+    {
+      printf ("%s-%s\n", verb[i].ita, verb[i].deu);
+    }
+
+  fclose (fp);
 }
+
+
