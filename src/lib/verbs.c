@@ -65,15 +65,30 @@ storage_verbs (FILE *fp)
 }
 
 void
-all_verbs (FILE *fp)
+all_verbs (FILE *fp,
+	   int row)
 {
-  char *row = malloc (sizeof (fp) / sizeof (char));
-  while (fgets (row, 3, fp) != NULL)
+  char *buffer = malloc (sizeof (fp) / sizeof (char));
+  while (fgets (buffer, row, fp) != NULL)
     {
-      printf ("%s", row);
+      printf ("%s", buffer);
     }
 
   printf ("\n");
+  fclose (fp);
+}
+
+int
+count_row_file (FILE *fp)
+{
+  char c;
+  int count = 0;
+  for (c = getc(fp); c != EOF; c = getc(fp)) 
+    if (c == '\n') 
+      count = count + 1;
+  
+  return count;
+  
   fclose (fp);
 }
 

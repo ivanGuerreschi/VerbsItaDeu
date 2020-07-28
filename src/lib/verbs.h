@@ -30,5 +30,7 @@ typedef struct
 
 FILE* open_file ();
 void storage_verbs (FILE *fp);
-void all_verbs (FILE *fp);
+void all_verbs (FILE *fp, int row);
+int count_row_file (FILE *fp);
+
 #endif /* LIBVERBS_FILE_H */
