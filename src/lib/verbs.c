@@ -23,20 +23,26 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include "verbs.h"
 
-void
-all_verbs ()
+FILE*
+open_file ()
 {
   FILE *fp;
-  verb_t *verb = malloc(100 * sizeof(verb_t));
-  int n = 0;
-  int res = 0;
-
   fp = fopen ("verbs.dat", "r");
   if (fp == NULL)
     {
       perror ("Error open file");
       exit (1);
     }
+
+  return fp;
+}
+
+void
+all_verbs (FILE *fp)
+{  
+  verb_t *verb = (verb_t *) malloc (3 * sizeof(verb_t));
+  int n = 0;
+  int res = 0; 
 
   while (1)
     {
@@ -60,6 +66,7 @@ all_verbs ()
     }
 
   fclose (fp);
+  free (verb);
 }
 
 

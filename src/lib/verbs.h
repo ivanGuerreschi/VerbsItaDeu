@@ -28,6 +28,7 @@ typedef struct
   char deu[20];
 } verb_t;
 
-void all_verbs ();
+void all_verbs (FILE *fp);
+FILE* open_file ();
 
 #endif /* LIBVERBS_FILE_H */
