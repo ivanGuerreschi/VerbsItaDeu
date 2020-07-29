@@ -20,13 +20,21 @@ You should have received a copy of the GNU General Public License
 along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "verbs.h"
 
 int
 main (int argc, char *argv[])
 {
   /* all_verbs (open_file (), count_row_file (open_file ())); */
-  storage_verbs (open_file (), count_row_file (open_file ()));
+
+  int row = count_row_file (open_file ());
+  verb_t *verb =  storage_verbs (open_file (), row);
+  
+  for (int i = 0; i < row; i++)
+    printf ("%s-%s\n", verb[i].ita, verb[i].deu);
+
+  free (verb);
   
   return 0;
 }

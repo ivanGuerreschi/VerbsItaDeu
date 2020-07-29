@@ -24,12 +24,12 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 typedef struct
 {
-  char ita[20];
-  char deu[20];
+  char *ita;
+  char *deu;
 } verb_t;
 
 FILE* open_file ();
-void storage_verbs (FILE *fp, int row);
+verb_t *storage_verbs (FILE *fp, int row);
 void all_verbs (FILE *fp, int row);
 int count_row_file (FILE *fp);
 

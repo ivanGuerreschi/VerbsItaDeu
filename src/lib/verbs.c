@@ -31,34 +31,33 @@ open_file ()
   if (fp == NULL)
     {
       perror ("Error open file");
-      exit (1);
+      exit (1); 
     }
 
   return fp;
 }
 
-void
-storage_verbs (FILE *fp,
+verb_t
+*storage_verbs (FILE *fp,
 	       int row)
 {  
   verb_t *verb = malloc (row * sizeof(verb_t));
   int n = 0;
   
   while (1)
-    {      
+    {
+      verb[n].ita = malloc (20 * sizeof(char));
+      verb[n].deu = malloc (20 * sizeof(char));
+
       if (fscanf (fp, "%s%s", verb[n].ita, verb[n].deu) != 2)
 	break;     
 
       n++;
     }
 
-  for (int i = 0; i < row; i++)
-    {
-      printf ("%s-%s\n", verb[i].ita, verb[i].deu);
-    }
-
   fclose (fp);
-  free (verb);
+  
+  return verb;
 }
 
 void
