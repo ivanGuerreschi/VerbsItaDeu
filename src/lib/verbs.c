@@ -40,8 +40,7 @@ open_file ()
 }
 
 verb_t
-*all_verbs (FILE *fp,
-	       int row)
+*all_verbs (FILE *fp, int row)
 {  
   verb_t *verb = malloc (row * sizeof(verb_t));
   int n = 0;
