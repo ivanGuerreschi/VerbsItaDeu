@@ -1,4 +1,4 @@
-/* libverbs.h
+/* verbs.h
    Copyright (C) 2020 Ivan Guerreschi
 
 This file is part of verbsitadeu.
@@ -29,8 +29,7 @@ typedef struct
 } verb_t;
 
 FILE* open_file ();
-verb_t *storage_verbs (FILE *fp, int row);
-void all_verbs (FILE *fp, int row);
+verb_t *all_verbs (FILE *fp, int row);
 int count_row_file (FILE *fp);
 
 #endif /* LIBVERBS_FILE_H */

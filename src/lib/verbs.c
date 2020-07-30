@@ -1,4 +1,4 @@
-/* libverbs.c
+/* verbs.c
    Copyright (C) 2020 Ivan Guerreschi
 
 This file is part of verbsitadeu.
@@ -21,6 +21,7 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "verbs.h"
 
 FILE*
@@ -38,7 +39,7 @@ open_file ()
 }
 
 verb_t
-*storage_verbs (FILE *fp,
+*all_verbs (FILE *fp,
 	       int row)
 {  
   verb_t *verb = malloc (row * sizeof(verb_t));
@@ -56,22 +57,9 @@ verb_t
     }
 
   fclose (fp);
+  free (verb);
   
   return verb;
-}
-
-void
-all_verbs (FILE *fp,
-	   int row)
-{
-  char *buffer = malloc (sizeof (fp) / sizeof (char));
-  while (fgets (buffer, row, fp) != NULL)
-    {
-      printf ("%s", buffer);
-    }
-
-  printf ("\n");
-  fclose (fp);
 }
 
 int
@@ -87,5 +75,3 @@ count_row_file (FILE *fp)
   
   fclose (fp);
 }
-
-

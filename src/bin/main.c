@@ -25,16 +25,12 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 int
 main (int argc, char *argv[])
-{
-  /* all_verbs (open_file (), count_row_file (open_file ())); */
-
+{  
   int row = count_row_file (open_file ());
-  verb_t *verb =  storage_verbs (open_file (), row);
-  
-  for (int i = 0; i < row; i++)
-    printf ("%s-%s\n", verb[i].ita, verb[i].deu);
+  verb_t *verbs =  all_verbs (open_file (), row);
 
-  free (verb);
+  for (int i = 0; i < row; i++)
+    printf ("%s-%s\n", verbs[i].ita, verbs[i].deu);
   
   return 0;
 }
