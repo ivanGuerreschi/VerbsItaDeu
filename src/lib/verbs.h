@@ -31,5 +31,6 @@ typedef struct
 FILE* open_file ();
 verb_t *all_verbs (FILE *fp, int row);
 int count_row_file (FILE *fp);
+bool exist_verb_deu (verb_t *verbs, const char *verb, int row);
 
 #endif /* LIBVERBS_FILE_H */

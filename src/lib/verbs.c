@@ -22,6 +22,7 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "verbs.h"
 
 FILE*
@@ -74,4 +75,20 @@ count_row_file (FILE *fp)
   return count;
   
   fclose (fp);
+}
+
+bool
+exist_verb_deu (verb_t *verbs,
+		const char *verb,
+		int row)
+{
+  bool compare = false;
+  
+  for (int i = 0; i < row; i++)
+    {
+      if (strcmp (verbs[i].deu, verb) == 0);
+      compare = true;
+    }
+
+  return compare;
 }

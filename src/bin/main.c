@@ -21,6 +21,7 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "verbs.h"
 
 int
@@ -31,6 +32,10 @@ main (int argc, char *argv[])
 
   for (int i = 0; i < row; i++)
     printf ("%s-%s\n", verbs[i].ita, verbs[i].deu);
-  
+
+  char *verbo = "haben";
+  if (exist_verb_deu (verbs, verbo, row) == true)
+    printf ("Il verbo Tedesco %s Esiste\n", verbo);
+      
   return 0;
 }
