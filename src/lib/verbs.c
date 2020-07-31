@@ -57,7 +57,6 @@ verb_t
     }
 
   fclose (fp);
-  free (verb);
   
   return verb;
 }

@@ -36,6 +36,9 @@ main (int argc, char *argv[])
   char *verbo = "haben";
   if (exist_verb_deu (verbs, verbo, row) == true)
     printf ("Il verbo Tedesco %s Esiste\n", verbo);
+
+  fclose (open_file ());
+  free (verbs);
       
   return 0;
 }
