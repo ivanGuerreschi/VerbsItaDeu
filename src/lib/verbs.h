@@ -28,9 +28,11 @@ typedef struct
   char *deu;
 } verb_t;
 
-FILE* open_file ();
+FILE *open_file ();
 verb_t *all_verbs (FILE *fp, int row);
 int count_row_file (FILE *fp);
-bool exist_verb_deu (verb_t *verbs, const char *ver, int row);
+bool exist_verb_deu (verb_t *verbs, const char *verb, int row);
+bool translate_verb (verb_t *verbs, const char *verb, int row);
+char *random_verb (verb_t *verbs, int row);
 
 #endif /* LIBVERBS_FILE_H */

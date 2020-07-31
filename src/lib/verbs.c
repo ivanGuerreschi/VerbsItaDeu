@@ -23,6 +23,7 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <time.h>
 #include "verbs.h"
 
 FILE*
@@ -89,4 +90,29 @@ exist_verb_deu (verb_t *verbs,
     }
 
   return compare;
+}
+
+bool
+translate_verb(verb_t *verbs,
+	       const char *verb,
+	       int row)
+{
+  bool translate = false;
+  
+  return translate;
+}
+
+
+char
+*random_verb (verb_t *verbs, int row)
+
+{
+  time_t t;
+  char *random_verb;
+  
+  srand ((unsigned) time (&t));
+  
+  random_verb = verbs[rand () % row].ita;
+ 
+  return random_verb;
 }

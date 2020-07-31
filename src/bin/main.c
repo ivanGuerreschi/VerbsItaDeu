@@ -37,8 +37,10 @@ main (int argc, char *argv[])
   if (exist_verb_deu (verbs, verbo, row) == true)
     printf ("Il verbo Tedesco %s Esiste\n", verbo);
 
+  printf ("%s\n", random_verb(verbs, row));
+
   fclose (open_file ());
   free (verbs);
-      
+  
   return 0;
 }
