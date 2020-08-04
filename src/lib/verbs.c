@@ -46,7 +46,7 @@ close_file (FILE **file)
 verb_t
 *all_verbs (FILE *file, int row)
 {  
-  verb_t *verb = malloc ((row + 1)  * sizeof (verb_t));
+  verb_t *verb = calloc (row + 1, sizeof (verb_t));
   
   for (int i = 0; i < row; i++)
     {
