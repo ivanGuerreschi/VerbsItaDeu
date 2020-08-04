@@ -32,8 +32,8 @@ main (int argc, char *argv[])
   open_file (&file_verbs, "verbs.dat");
   
   int row = count_row_file (file_row); 
-  verb_t *verbs = all_verbs (file_verbs, row); 
-  
+  verb_t *verbs = all_verbs (file_verbs, row);
+ 
   for (int i = 0; i < row; i++)
     printf ("%s-%s\n", verbs[i].ita, verbs[i].deu);
 
