@@ -24,16 +24,17 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 typedef struct
 {
-  char *ita;
-  char *deu;
+  char ita[50];
+  char deu[50];
 } verb_t;
 
-FILE *open_file ();
-verb_t *all_verbs (FILE *fp, int row);
-int count_row_file (FILE *fp);
-bool exist_verb_deu (verb_t *verbs, const char *verb, int row);
+void open_file (FILE **, const char *name_file);
+void close_file (FILE **);
+verb_t *all_verbs (FILE *, int);
+int count_row_file (FILE *);
+bool exist_verb_deu (verb_t *verbs, const char *verb, int);
 bool translate_verb (verb_t *verbs, const char *verb_ita,
-		     const char *verb_deu, int row);
-char *random_verb (verb_t *verbs, int row);
+		     const char *verb_deu, int);
+char *random_verb (verb_t *verbs, int);
 
 #endif /* LIBVERBS_FILE_H */

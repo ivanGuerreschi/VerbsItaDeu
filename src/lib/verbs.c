@@ -26,54 +26,50 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #include <time.h>
 #include "verbs.h"
 
-FILE*
-open_file ()
-{
-  FILE *fp;
-  fp = fopen ("verbs.dat", "r");
-  if (fp == NULL)
+void
+open_file (FILE **file, const char *name_file)
+{    
+  if ((*file = fopen (name_file, "r")) == NULL)
     {
       perror ("Error open file");
       exit (1); 
-    }
+    }  
+}
 
-  return fp;
+void
+close_file (FILE **file)
+{
+  if (fclose (*file) != 0)
+    perror ("Error close file");        
 }
 
 verb_t
-*all_verbs (FILE *fp, int row)
+*all_verbs (FILE *file, int row)
 {  
-  verb_t *verb = malloc (row * sizeof(verb_t));
+  verb_t *verb = malloc (row * sizeof (verb_t)); 
   int n = 0;
   
   while (1)
-    {
-      verb[n].ita = malloc (20 * sizeof(char));
-      verb[n].deu = malloc (20 * sizeof(char));
-
-      if (fscanf (fp, "%s%s", verb[n].ita, verb[n].deu) != 2)
+    {       
+      if (fscanf (file, "%s%s", verb[n].ita, verb[n].deu) != 2)
 	break;     
 
       n++;
-    }
-
-  fclose (fp);
+    }  
   
-  return verb;
+  return verb;  
 }
 
 int
-count_row_file (FILE *fp)
+count_row_file (FILE *file)
 {
   char c;
   int count = 1;
-  for (c = getc(fp); c != EOF; c = getc(fp)) 
+  for (c = getc(file); c != EOF; c = getc(file)) 
     if (c == '\n') 
       count++;
-  
+ 
   return count;
-  
-  fclose (fp);
 }
 
 bool
@@ -85,8 +81,8 @@ exist_verb_deu (verb_t *verbs,
   
   for (int i = 0; i < row; i++)
     {
-      if (strcmp (verbs[i].deu, verb) == 0);
-      compare = true;
+      if (strcmp (verbs[i].deu, verb) == 0)
+	compare = true;
     }
 
   return compare;
@@ -102,9 +98,9 @@ translate_verb(verb_t *verbs,
 
   for (int i = 0; i < row; i++)
     if (strcmp (verbs[i].ita, verb_ita) == 0)
-      if (strcmp (verbs[i].deu, verb_deu) == 0)
+      if (strcmp (verbs[i].deu, verb_deu) == 0) 
 	translate = true;
-	  
+
   return translate;
 }
 

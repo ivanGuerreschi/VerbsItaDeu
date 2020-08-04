@@ -26,23 +26,28 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 int
 main (int argc, char *argv[])
-{  
-  int row = count_row_file (open_file ());
-  verb_t *verbs =  all_verbs (open_file (), row);
-
+{
+  FILE *file_verbs, *file_row;
+  open_file (&file_row, "verbs.dat");
+  open_file (&file_verbs, "verbs.dat");
+  
+  int row = count_row_file (file_row); 
+  verb_t *verbs = all_verbs (file_verbs, row); 
+  
   for (int i = 0; i < row; i++)
     printf ("%s-%s\n", verbs[i].ita, verbs[i].deu);
 
-  char *verbo = "haben";
+  const char *verbo = "haben";
   if (exist_verb_deu (verbs, verbo, row) == true)
     printf ("Il verbo Tedesco %s Esiste\n", verbo);
 
   char *random_verb_ita = random_verb(verbs, row);
 
   puts (translate_verb (verbs, random_verb_ita, "haben", row) ? "true" : "false");
-    
-  fclose (open_file ());
+
+  close_file (&file_row);
+  close_file (&file_verbs);
   free (verbs);
-  
+ 
   return 0;
 }

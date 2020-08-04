@@ -19,7 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>.
 
-AM_CFLAGS = -I $(top_srcdir)/src/lib -Wall -Werror 
+AM_CFLAGS = -I $(top_srcdir)/src/lib -Wall -Wextra -Wpedantic \
+          -Wformat=2 -Wno-unused-parameter -Wshadow \
+          -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
+          -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
+          -Wjump-misses-init -Wlogical-op
 
 noinst_LIBRARIES = libverbs.a
 noinst_HEADERS = verbs.h
