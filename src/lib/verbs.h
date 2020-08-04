@@ -24,8 +24,8 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 typedef struct
 {
-  char ita[50];
-  char deu[50];
+  char *ita;
+  char *deu;
 } verb_t;
 
 void open_file (FILE **, const char *name_file);

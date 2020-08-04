@@ -47,7 +47,14 @@ main (int argc, char *argv[])
 
   close_file (&file_row);
   close_file (&file_verbs);
-  free (verbs);
+ 
+  for (int i = 0; i < row; i++)
+    {
+      free (verbs[i].ita);
+      free (verbs[i].deu);	    
+    }
+  
+   free (verbs);
  
   return 0;
 }

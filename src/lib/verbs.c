@@ -46,18 +46,24 @@ close_file (FILE **file)
 verb_t
 *all_verbs (FILE *file, int row)
 {  
-  verb_t *verb = malloc (row * sizeof (verb_t)); 
+  verb_t *verb = malloc (row * sizeof (verb_t));
   int n = 0;
+
+   for (int i = 0; i < row; i++)
+     {
+       verb[i].ita = malloc (50 * sizeof (char));
+       verb[i].deu = malloc (50 * sizeof (char));
+     }
   
   while (1)
-    {       
+    {
       if (fscanf (file, "%s%s", verb[n].ita, verb[n].deu) != 2)
 	break;     
 
-      n++;
-    }  
+      n++;	    
+    }
   
-  return verb;  
+  return verb;
 }
 
 int
