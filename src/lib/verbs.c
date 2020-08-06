@@ -47,6 +47,12 @@ verb_t
 *all_verbs (FILE *file, int row)
 {  
   verb_t *verb = calloc (row + 1, sizeof (verb_t));
+
+  if (verb == NULL)
+    {
+      perror ("Error allocation failed");
+      exit (0);
+    }
   
   for (int i = 0; i < row; i++)
     {
