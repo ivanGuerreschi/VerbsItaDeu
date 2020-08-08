@@ -19,13 +19,14 @@
 # You should have received a copy of the GNU General Public License
 # along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>.
 
-AM_CFLAGS = -I $(top_srcdir)/src/bin -I $(top_srcdir)/src/lib -Wall -Wextra -Wpedantic \
+AM_CFLAGS = -I $(top_srcdir)/src -I $(top_srcdir)/src/lib \
+          -Wall -Wextra -Wpedantic \
           -Wformat=2 -Wno-unused-parameter -Wshadow \
           -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
           -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
 	  -Wjump-misses-init -Wlogical-op	
 
 bin_PROGRAMS = verbsitadeu
-verbsitadeu_SOURCES = main.c
+verbsitadeu_SOURCES = main.c menu.c
 
 verbsitadeu_LDADD = $(top_builddir)/src/lib/libverbs.a $(AM_LDFLAGS)

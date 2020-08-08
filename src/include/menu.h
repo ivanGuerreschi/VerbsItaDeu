@@ -1,4 +1,4 @@
-/* verbs.h
+/* menu.h
    Copyright (C) 2020 Ivan Guerreschi
 
 This file is part of verbsitadeu.
@@ -19,23 +19,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef LIBVERBS_FILE_H
-#define LIBVERBS_FILE_H
+#ifndef MENU_FILE_H
+#define MENU_FILE_H
 
-typedef struct
-{
-  char *ita;
-  char *deu;
-} verb_t;
+void print_menu (void);
 
-void open_file (FILE **, const char *name_file);
-void close_file (FILE **);
-verb_t *all_verbs (FILE *, int);
-int count_row_file (FILE *);
-bool exist_verb_deu (verb_t *verbs, const char *verb, int);
-bool translate_verb (verb_t *verbs, const char *verb_ita,
-		     const char *verb_deu, int);
-char *random_verb (verb_t *verbs, int);
-
-#endif /* LIBVERBS_FILE_H */
-
+#endif /* MENU_FILE_H */

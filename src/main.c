@@ -23,10 +23,13 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include <stdbool.h>
 #include "verbs.h"
+#include "include/menu.h"
 
 int
 main (int argc, char *argv[])
 {
+  print_menu ();
+  
   FILE *file_verbs, *file_row;
   open_file (&file_row, "verbs.dat");
   open_file (&file_verbs, "verbs.dat");

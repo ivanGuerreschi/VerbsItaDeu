@@ -1,4 +1,4 @@
-/* verbs.h
+/* menu.c
    Copyright (C) 2020 Ivan Guerreschi
 
 This file is part of verbsitadeu.
@@ -19,23 +19,37 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef LIBVERBS_FILE_H
-#define LIBVERBS_FILE_H
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef struct
+void
+print_menu (void)
 {
-  char *ita;
-  char *deu;
-} verb_t;
+  int number_input = 0;
 
-void open_file (FILE **, const char *name_file);
-void close_file (FILE **);
-verb_t *all_verbs (FILE *, int);
-int count_row_file (FILE *);
-bool exist_verb_deu (verb_t *verbs, const char *verb, int);
-bool translate_verb (verb_t *verbs, const char *verb_ita,
-		     const char *verb_deu, int);
-char *random_verb (verb_t *verbs, int);
+  while (1)
+    {
+      printf ("%s\n", "----------------------------------------------");
+      printf ("%s\n\n", "VerbsItaDeu");
+      printf ("%s\n", "Input number (0, )");
+      printf ("%s\n", "(0) Quit ");
+      printf ("%s\n", "----------------------------------------------");	    
+      if (scanf ("%d", &number_input) != 1)
+	{
+	  printf ("%s\n", "Error input, please enter number (0, )");
+	  scanf("%*s");
+	}       
+      
+      switch (number_input)
+	{
+	case 0:
+	  exit (1);
+	  break;
 
-#endif /* LIBVERBS_FILE_H */
-
+	default:
+	  break;
+	}      
+    }  
+}
+  
+  
