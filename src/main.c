@@ -28,25 +28,47 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 int
 main (int argc, char *argv[])
 {
-  print_menu ();
+  int menu = 0;
   
-  FILE *file_verbs, *file_row;
+  FILE *file_verbs, *file_row = NULL;
   open_file (&file_row, "verbs.dat");
   open_file (&file_verbs, "verbs.dat");
-  
+
   int row = count_row_file (file_row); 
   verb_t *verbs = all_verbs (file_verbs, row);
+
+  while (true)
+    {  
+      menu = print_menu ();
+
+      switch (menu)
+	{
+	case 0:
+	  exit (1);
+	  break;
+
+	case 1:
+	  for (int i = 0; i < row; i++)
+	    printf ("%s-%s\n", verbs[i].ita, verbs[i].deu);
+	  break;
+
+	case 2:
+	  printf ("%s\n", random_verb_ita (verbs, row));
+	  break;
+
+	case 3:
+	  printf ("%s\n", random_verb_deu (verbs, row));
+	  break;
+	}
+    }
  
-  for (int i = 0; i < row; i++)
-    printf ("%s-%s\n", verbs[i].ita, verbs[i].deu);
+  /* const char *verbo = "haben"; */
+  /* if (exist_verb_deu (verbs, verbo, row) == true) */
+  /*   printf ("Il verbo Tedesco %s Esiste\n", verbo); */
 
-  const char *verbo = "haben";
-  if (exist_verb_deu (verbs, verbo, row) == true)
-    printf ("Il verbo Tedesco %s Esiste\n", verbo);
+  /* char *random_verb_ita = random_verb(verbs, row); */
 
-  char *random_verb_ita = random_verb(verbs, row);
-
-  puts (translate_verb (verbs, random_verb_ita, "haben", row) ? "true" : "false");
+  /* puts (translate_verb (verbs, random_verb_ita, "haben", row) ? "true" : "false"); */
 
   close_file (&file_row);
   close_file (&file_verbs);

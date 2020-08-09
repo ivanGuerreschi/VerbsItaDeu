@@ -127,7 +127,7 @@ translate_verb(verb_t *verbs,
 
 
 char
-*random_verb (verb_t *verbs, int row)
+*random_verb_ita (verb_t *verbs, int row)
 
 {
   time_t t;
@@ -136,6 +136,20 @@ char
   srand ((unsigned) time (&t));
   
   random_verb = verbs[rand () % row].ita;
+ 
+  return random_verb;
+}
+
+char
+*random_verb_deu (verb_t *verbs, int row)
+
+{
+  time_t t;
+  char *random_verb;
+  
+  srand ((unsigned) time (&t));
+  
+  random_verb = verbs[rand () % row].deu;
  
   return random_verb;
 }

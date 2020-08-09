@@ -22,6 +22,6 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #ifndef MENU_FILE_H
 #define MENU_FILE_H
 
-void print_menu (void);
+int print_menu (void);
 
 #endif /* MENU_FILE_H */
