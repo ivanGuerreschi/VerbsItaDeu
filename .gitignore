@@ -1,6 +1,6 @@
 /autom4te.cache/
 /config/
-src/verbsitadeu
+/src/verbsitadeu
 Makefile
 Makefile.in
 aclocal.m4
