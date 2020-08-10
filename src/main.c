@@ -59,6 +59,17 @@ main (int argc, char *argv[])
 	case 3:
 	  printf ("%s\n", random_verb_deu (verbs, row));
 	  break;
+
+	case 4:
+	  printf ("%s\n", "Enter Deu verb");
+	  char *verb = NULL;
+	  /* ISO C does not support the 'm' scanf flag */
+	  scanf ("%ms", &verb);
+	  if (verb)
+	    puts (exist_verb_deu (verbs, verb, row) ? "true" : "false");
+	 
+	  free (verb);
+	  break;
 	}
     }
  

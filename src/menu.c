@@ -29,17 +29,19 @@ print_menu (void)
  
   printf ("%s\n", "----------------------------------------------");
   printf ("%s\n\n", "VerbsItaDeu");
-  printf ("%s\n", "(0, 1)Input number");
+  printf ("%s\n", "(0, 1, 2, 3, 4)Input number");
   printf ("%s\n", "(0) Quit ");
   printf ("%s\n", "(1) Print all verbs"); 
   printf ("%s\n", "(2) Random verb Ita");
   printf ("%s\n", "(3) Random verb Deu");
+  printf ("%s\n", "(4) Exist verb Deu?");
   printf ("%s\n", "----------------------------------------------");
   
   if (scanf ("%d", &number_input) != 1)
     {
-      printf ("%s\n", "Error input, please enter number (0, )");
+      printf ("%s\n", "Error input, please enter number (0, 1, 2, 3, 4");
       scanf("%*s");
+      number_input = 1;
     }       
   
   return number_input;  
