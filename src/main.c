@@ -22,6 +22,7 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "verbs.h"
 #include "include/menu.h"
 
@@ -29,7 +30,8 @@ int
 main (int argc, char *argv[])
 {
   int menu = 0;
-  
+  char verb[BUFSIZ];
+
   FILE *file_verbs, *file_row = NULL;
   open_file (&file_row, "verbs.dat");
   open_file (&file_verbs, "verbs.dat");
@@ -43,32 +45,38 @@ main (int argc, char *argv[])
 
       switch (menu)
 	{
-	case 0:
+	case 1:
 	  exit (1);
 	  break;
 
-	case 1:
+	case 2:
 	  for (int i = 0; i < row; i++)
 	    printf ("%s-%s\n", verbs[i].ita, verbs[i].deu);
 	  break;
 
-	case 2:
-	  printf ("%s\n", random_verb_ita (verbs, row));
-	  break;
-
 	case 3:
-	  printf ("%s\n", random_verb_deu (verbs, row));
+	  puts (random_verb_ita (verbs, row));
 	  break;
 
 	case 4:
-	  printf ("%s\n", "Enter Deu verb");
-	  char *verb = NULL;
-	  /* ISO C does not support the 'm' scanf flag */
-	  scanf ("%ms", &verb);
-	  if (verb)
-	    puts (exist_verb_deu (verbs, verb, row) ? "true" : "false");
+	  puts (random_verb_deu (verbs, row));
+	  break;
+
+	case 5:
+	  puts ("Enter Deu verb");
 	 
-	  free (verb);
+	  if (fgets (verb, sizeof (verb), stdin) == NULL)
+	    fprintf(stderr, "Fail to read the input stream\n");
+	  else
+	    verb[strcspn (verb, "\r\n")] = 0;
+	  
+	  puts (exist_verb_deu (verbs, verb, row)
+		? "The verb exists"
+		: "The verb does not exist");	    
+	  break;
+
+	default:
+	  fprintf(stderr, "Error input, please enter number (0, 1, 2, 3, 4)\n");
 	  break;
 	}
     }

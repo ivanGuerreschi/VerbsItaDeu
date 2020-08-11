@@ -21,29 +21,35 @@ along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int
 print_menu (void)
 {
   int number_input = 0;
- 
-  printf ("%s\n", "----------------------------------------------");
-  printf ("%s\n\n", "VerbsItaDeu");
-  printf ("%s\n", "(0, 1, 2, 3, 4)Input number");
-  printf ("%s\n", "(0) Quit ");
-  printf ("%s\n", "(1) Print all verbs"); 
-  printf ("%s\n", "(2) Random verb Ita");
-  printf ("%s\n", "(3) Random verb Deu");
-  printf ("%s\n", "(4) Exist verb Deu?");
-  printf ("%s\n", "----------------------------------------------");
+  char buffer[BUFSIZ];
+    
+  puts ("----------------------------------------------");
+  puts ("VerbsItaDeu\n");
+  puts ("(1, 2, 3, 4, 5)Input number");
+  puts ("(1) Quit ");
+  puts ("(2) Print all verbs"); 
+  puts ("(3) Random verb Ita");
+  puts ("(4) Random verb Deu");
+  puts ("(5) Exist verb Deu?");
+  puts ("----------------------------------------------");
+
+  fgets (buffer, sizeof (buffer), stdin);
   
-  if (scanf ("%d", &number_input) != 1)
-    {
-      printf ("%s\n", "Error input, please enter number (0, 1, 2, 3, 4");
-      scanf("%*s");
-      number_input = 1;
-    }       
+  if (( strlen (buffer) - 1) > 1)
+    {      
+      return 0;
+    }    
   
+  buffer[strcspn (buffer, "\r\n")] = 0;
+  
+  number_input = atoi (buffer);
+        
   return number_input;  
 }
   
