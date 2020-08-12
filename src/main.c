@@ -64,7 +64,7 @@ main (int argc, char *argv[])
 
 	case 5:
 	  puts ("Enter Deu verb");
-	 
+	  
 	  if (fgets (verb, sizeof (verb), stdin) == NULL)
 	    fprintf(stderr, "Fail to read the input stream\n");
 	  else
@@ -74,9 +74,40 @@ main (int argc, char *argv[])
 		? "The verb exists"
 		: "The verb does not exist");	    
 	  break;
+	  
+	  case 6:
+	    puts ("Enter Ita verb");
+	 
+	    if (fgets (verb, sizeof (verb), stdin) == NULL)
+	      fprintf(stderr, "Fail to read the input stream\n");
+	    else
+	      verb[strcspn (verb, "\r\n")] = 0;
+	  
+	    puts (exist_verb_ita (verbs, verb, row)
+		  ? "The verb exists"
+		  : "The verb does not exist");	    
+	    break;
+
+	  case 7:	   
+	    puts ("Translate random verb Ita in Deu");
+	    
+	    char *verb_ita;
+	    verb_ita = (random_verb_ita (verbs, row));
+	    puts (verb_ita);
+
+	    if (fgets (verb, sizeof (verb), stdin) == NULL)
+	      fprintf(stderr, "Fail to read the input stream\n");
+	    else
+	      verb[strcspn (verb, "\r\n")] = 0;
+	   
+	    puts (translate_verb_deu(verbs, verb_ita, verb, row)
+		  ? "The verb translate correct"
+		  : "The verb translate not correct");
+	  
+	    break;
 
 	default:
-	  fprintf(stderr, "Error input, please enter number (0, 1, 2, 3, 4)\n");
+	  fprintf(stderr, "Error input, please enter number (0, 1, 2, 3, 4, 5, 6, 7)\n");
 	  break;
 	}
     }

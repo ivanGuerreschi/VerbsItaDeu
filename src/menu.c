@@ -31,12 +31,14 @@ print_menu (void)
     
   puts ("----------------------------------------------");
   puts ("VerbsItaDeu\n");
-  puts ("(1, 2, 3, 4, 5)Input number");
+  puts ("(1, 2, 3, 4, 5, 6, 7)Input number");
   puts ("(1) Quit ");
   puts ("(2) Print all verbs"); 
   puts ("(3) Random verb Ita");
   puts ("(4) Random verb Deu");
   puts ("(5) Exist verb Deu?");
+  puts ("(6) Exist verb Ita?");
+  puts ("(7) Translate verb Ita");
   puts ("----------------------------------------------");
 
   fgets (buffer, sizeof (buffer), stdin);

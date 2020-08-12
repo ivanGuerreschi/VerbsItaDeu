@@ -19,6 +19,7 @@ libtool
 m4
 missing
 stamp-h1
+TAGS
 *~
 *.html
 *.log

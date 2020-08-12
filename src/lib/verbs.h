@@ -33,7 +33,8 @@ void close_file (FILE **);
 verb_t *all_verbs (FILE *, int);
 int count_row_file (FILE *);
 bool exist_verb_deu (verb_t *verbs, const char *verb, int);
-bool translate_verb (verb_t *verbs, const char *verb_ita,
+bool exist_verb_ita (verb_t *verbs, const char *verb, int);
+bool translate_verb_deu (verb_t *verbs, const char *verb_ita,
 		     const char *verb_deu, int);
 char *random_verb_ita (verb_t *verbs, int);
 char *random_verb_deu (verb_t *verbs, int);

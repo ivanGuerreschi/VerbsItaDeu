@@ -110,7 +110,23 @@ exist_verb_deu (verb_t *verbs,
 }
 
 bool
-translate_verb(verb_t *verbs,
+exist_verb_ita (verb_t *verbs,
+		const char *verb,
+		int row)
+{
+  bool compare = false;
+  
+  for (int i = 0; i < row; i++)
+    {
+      if (strcmp (verbs[i].ita, verb) == 0)
+	compare = true;
+    }
+
+  return compare;
+}
+
+bool
+translate_verb_deu(verb_t *verbs,
 	       const char *verb_ita,
 	       const char *verb_deu,
 	       int row)
@@ -118,8 +134,8 @@ translate_verb(verb_t *verbs,
   bool translate = false;
 
   for (int i = 0; i < row; i++)
-    if (strcmp (verbs[i].ita, verb_ita) == 0)
-      if (strcmp (verbs[i].deu, verb_deu) == 0) 
+    if (strcmp (verbs[i].deu, verb_deu) == 0)
+      if (strcmp (verbs[i].ita, verb_ita) == 0) 
 	translate = true;
 
   return translate;
