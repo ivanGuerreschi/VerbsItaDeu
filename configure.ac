@@ -40,7 +40,7 @@ AC_LANG([C])
 
 # Checks for header files.
 AC_HEADER_STDC
-AC_CHECK_HEADERS([stdio.h stdlib.h string.h])
+AC_CHECK_HEADERS([stdio.h stdlib.h string.h stdbool.h time.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T
