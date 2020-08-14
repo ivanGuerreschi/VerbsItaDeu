@@ -10,7 +10,7 @@ verbsitadeu is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
+  
 verbsitadeu is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -35,7 +35,7 @@ int count_row_file (FILE *);
 bool exist_verb_deu (verb_t *verbs, const char *verb, int);
 bool exist_verb_ita (verb_t *verbs, const char *verb, int);
 bool translate_verb_deu (verb_t *verbs, const char *verb_ita,
-                         const char *verb_deu, int);
+		     const char *verb_deu, int);
 char *random_verb_ita (verb_t *verbs, int);
 char *random_verb_deu (verb_t *verbs, int);
 

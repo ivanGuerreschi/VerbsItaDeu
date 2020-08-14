@@ -10,7 +10,7 @@ verbsitadeu is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-  
+
 verbsitadeu is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -28,12 +28,12 @@ print_menu (void)
 {
   int number_input = 0;
   char buffer[BUFSIZ];
-    
+
   puts ("----------------------------------------------");
   puts ("VerbsItaDeu\n");
   puts ("(1, 2, 3, 4, 5, 6, 7)Input number");
   puts ("(1) Quit ");
-  puts ("(2) Print all verbs"); 
+  puts ("(2) Print all verbs");
   puts ("(3) Random verb Ita");
   puts ("(4) Random verb Deu");
   puts ("(5) Exist verb Deu?");
@@ -42,17 +42,17 @@ print_menu (void)
   puts ("----------------------------------------------");
 
   fgets (buffer, sizeof (buffer), stdin);
-  
+
   if (( strlen (buffer) - 1) > 1)
-    {      
+    {
       return 0;
-    }    
-  
+    }
+
   buffer[strcspn (buffer, "\r\n")] = 0;
-  
+
   number_input = atoi (buffer);
-        
-  return number_input;  
+
+  return number_input;
 }
-  
-  
+
+
